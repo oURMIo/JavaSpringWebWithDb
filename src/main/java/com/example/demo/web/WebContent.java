@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class WebContent {
     private long id;
+
     @Autowired
     UseForUser users;
 
@@ -33,6 +34,11 @@ public class WebContent {
                 + "   ALL USERS   - "
                 + "\r\n"
                 + users.findAll();
+        User user = new User();
+        user.setId(id + 2);
+        user.setName("name");
+        users.save(user);
+        id++;
         return time;
     }
 }
