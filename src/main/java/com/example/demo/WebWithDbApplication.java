@@ -10,7 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class WebWithDbApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
-        SpringApplication.run(WebWithDbApplication.class, args);
+        SpringApplication app = new SpringApplication(WebWithDbApplication.class);
+        app.run();
     }
 
     @Autowired

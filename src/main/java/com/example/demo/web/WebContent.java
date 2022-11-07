@@ -7,11 +7,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class WebContent {
-    private long id;
+    private long id = 0;
 
     @Autowired
     UseForUser users;
 
+    /* in usual db server it's working */
     @GetMapping("/create/{name}")
     public String indexMain(@PathVariable String name) {
         User user = new User();
@@ -24,7 +25,6 @@ public class WebContent {
 
     @GetMapping("/create")
     public String indexTest() {
-
         return " TEST access ";
     }
 
@@ -36,7 +36,7 @@ public class WebContent {
                 + users.findAll();
         User user = new User();
         user.setId(id + 2);
-        user.setName("name");
+        user.setName("name " + id);
         users.save(user);
         id++;
         return time;
